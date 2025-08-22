@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SavErn</title>
+  <style>
+    /* General body styling */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1e3a8a; /* deep blue */
+      color: #f3f4f6; /* light text for contrast */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    /* Container */
+    .container {
+      padding: 40px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Heading with transition animation */
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: scale(0.5); /* Start smaller */
+      animation: fadeZoom 2s ease forwards; /* Run animation on load */
+    }
+
+    /* Keyframes for entry + reverse */
+    @keyframes fadeZoom {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2); /* Slight zoom out */
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1); /* Back to normal */
+      }
+    }
+
+    /* Paragraph */
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    /* Button with transition */
+    .btn {
+      padding: 12px 24px;
+      background-color: #facc15; /* yellow for contrast */
+      color: #1e3a8a;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.5s ease, transform 0.4s ease;
+    }
+
+    .btn:hover {
+      background-color: #f59e0b; /* darker yellow on hover */
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to SavErn</h1>
+    <p>Your smart budgeting and financial planning partner.</p>
+    <button class="btn">Get Started</button>
+  </div>
+</body>
+</html>
