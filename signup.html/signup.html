@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SaveArn Sign Up</title>
+
+    <style>
+        body {
+            background-color: #041e38;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #003366;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            font-size: 16px;
+            color: #003366;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 15px;
+            border: 1px solid #b3c5ff;
+            border-radius: 6px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: #0066CC;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: left;
+        }
+
+        .login-text {
+            margin-top: 15px;
+            font-size: 15px;
+        }
+
+        .login-link {
+            color: #0066CC;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-container">
+        <h2>Create Account</h2>
+
+        <form onsubmit="return signupValidate()">
+
+            <label>Name</label>
+            <input type="text" id="name">
+            <div id="nameError" class="error"></div>
+
+            <label>Password</label>
+            <input type="password" id="password">
+            <div id="passwordError" class="error"></div>
+
+            <label>Confirm Password</label>
+            <input type="password" id="confirmPassword">
+            <div id="confirmError" class="error"></div>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p class="login-text">
+            Already have an account in SavEarn ?  
+            <a href="login.html" class="login-link">Login</a>
+        </p>
+    </div>
+
+    <script>
+        function signupValidate() {
+            let name = document.getElementById("name").value.trim();
+            let pass = document.getElementById("password").value;
+            let confirmPass = document.getElementById("confirmPassword").value;
+
+            let nameError = document.getElementById("nameError");
+            let passwordError = document.getElementById("passwordError");
+            let confirmError = document.getElementById("confirmError");
+
+            nameError.innerHTML = "";
+            passwordError.innerHTML = "";
+            confirmError.innerHTML = "";
+
+            let isValid = true;
+
+            if (name === "") {
+                nameError.innerHTML = "Name cannot be empty.";
+                isValid = false;
+            }
+
+            if (pass.length < 6) {
+                passwordError.innerHTML = "Password must be at least 6 characters.";
+                isValid = false;
+            }
+
+            if (confirmPass !== pass) {
+                confirmError.innerHTML = "Passwords do not match.";
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Sign Up Successful ✔");
+
+                // Redirect to SaveArn main page
+                setTimeout(() => {
+                    window.location.href = "savearn.html";
+                }, 1000);
+            }
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>
